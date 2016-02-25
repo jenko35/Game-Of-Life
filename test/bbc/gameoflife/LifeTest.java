@@ -1,10 +1,13 @@
-package bbc.gameoflifestub;
+package bbc.gameoflife;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import bbc.gameoflife.Cell;
+import bbc.gameoflife.Life;
 
 import static org.junit.Assert.*;
 	

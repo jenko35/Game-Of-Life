@@ -1,8 +1,10 @@
-package bbc.gameoflifestub;
+package bbc.gameoflife;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+
+import bbc.gameoflife.GameOfLife;
 
 public class GameOfLifeTest {
 

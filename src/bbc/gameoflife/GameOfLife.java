@@ -1,4 +1,4 @@
-package bbc.gameoflifestub;
+package bbc.gameoflife;
 
 import java.util.HashSet;
 import java.util.Set;

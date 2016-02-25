@@ -1,7 +1,10 @@
-package bbc.gameoflifestub;
+package bbc.gameoflife;
 
 import java.util.HashSet;
 import org.junit.Test;
+
+import bbc.gameoflife.Cell;
+
 import static org.junit.Assert.*;
 	
 public class CellTest {

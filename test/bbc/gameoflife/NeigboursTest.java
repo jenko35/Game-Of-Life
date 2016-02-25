@@ -1,4 +1,4 @@
-package bbc.gameoflifestub;
+package bbc.gameoflife;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,9 @@ import java.util.Set;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import bbc.gameoflife.Cell;
+import bbc.gameoflife.Neighbours;
 
 public class NeigboursTest {
 	
