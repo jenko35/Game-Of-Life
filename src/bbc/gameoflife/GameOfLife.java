@@ -73,14 +73,18 @@ public class GameOfLife {
 		}
 
 		for (Cell cell : aliveToDead) {
+
 			neighbours.removeDeadCell(cell);
 			life.removeDeadCell(cell);
 		}
 
 		for (Cell cell : deadToAlive) {
-			neighbours.addLiveCell(cell);
-			life.addAliveCell(cell);
-			checkBounds(cell);
+
+			if(!checkIntOverflow(cell)){
+				neighbours.addLiveCell(cell);
+				life.addAliveCell(cell);
+				checkBounds(cell);
+			}
 		}
 		goCount++;
 	}
@@ -145,6 +149,17 @@ public class GameOfLife {
 		else if(cell.getY() > maxY){
 			maxY = cell.getY();
 		}
+	}
+
+	/**
+	 * Checks to see if either of the coordinates of a cell are equal to the maximum/minimum int value.
+	 * @param boolean True if one of the coordinates is the maximum/minimum int value, false otherwise.
+	 */
+	private boolean checkIntOverflow(Cell cell){
+		if(cell.getX() == Integer.MAX_VALUE || cell.getX() == Integer.MIN_VALUE || cell.getY() == Integer.MAX_VALUE || cell.getY() == Integer.MAX_VALUE){
+			return true;
+		}
+		return false;
 	}
 
 }

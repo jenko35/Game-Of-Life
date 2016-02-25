@@ -12,16 +12,16 @@ import bbc.gameoflife.Cell;
 import bbc.gameoflife.Neighbours;
 
 public class NeigboursTest {
-	
+
 	protected Neighbours neighbours;
 	protected Set<Cell> setOfLiveCells;
-	
+
 	@Before
 	public void setUp(){
 		setOfLiveCells = new HashSet<Cell>();
 		setOfLiveCells.add(new Cell(1,1));
 		setOfLiveCells.add(new Cell(2,2));
-    	neighbours = new Neighbours(setOfLiveCells);
+		neighbours = new Neighbours(setOfLiveCells);
 	}
 
 	@Test
@@ -55,5 +55,5 @@ public class NeigboursTest {
 		assertNull(neighbours.getLiveNeighbourMap().get(new Cell(0,0)));
 		assertEquals(8, neighbours.getLiveNeighbourMap().size());
 	}
-		
+
 }

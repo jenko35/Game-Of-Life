@@ -32,7 +32,6 @@ public class Neighbours {
 	 * @param cell Live cell to have its neighbours updated.
 	 */
 	public void addLiveCell(Cell cell){
-
 		for(int i=-1; i < 2; i++){
 			for(int j=-1; j < 2; j++){
 				if(!(i==0 && j==0)){														//Ignore self
@@ -86,6 +85,7 @@ public class Neighbours {
 	public HashMap<Cell, Integer> getLiveNeighbourMap() {
 		return liveNeighbourMap;
 	}
+
 }
 
 

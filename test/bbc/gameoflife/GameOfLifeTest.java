@@ -25,7 +25,7 @@ public class GameOfLifeTest {
 		desiredOutputString =  	 ".....\n"
 						+   	 ".***.\n"
 						+        ".....\n";
-	assertEquals(result, desiredOutputString);
+		assertEquals(result, desiredOutputString);
 	}
 
 	@Test
@@ -39,11 +39,11 @@ public class GameOfLifeTest {
 		gameOfLife.nextGo();
 		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
 		desiredOutputString = "..*..\n"
-					   +      "..*..\n"
-					   +      "..*..\n";
+					+         "..*..\n"
+					+         "..*..\n";
 		assertEquals(result, desiredOutputString);
 	}
-	
+
 	@Test
 	public void testGridGrow()
 	{
@@ -55,9 +55,9 @@ public class GameOfLifeTest {
 		gameOfLife.nextGo();
 		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
 		desiredOutputString = ".....\n"
-					   +      ".***.\n"
-					   +      ".***.\n"
-		   			   +      ".***.\n";
+				+      ".***.\n"
+				+      ".***.\n"
+				+      ".***.\n";
 		assertEquals(result, desiredOutputString);
 	}
 
@@ -72,9 +72,9 @@ public class GameOfLifeTest {
 		gameOfLife.nextGo();
 		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
 		desiredOutputString = ".***.\n"
-					   +      ".***.\n"
-					   +      ".***.\n"
-		   			   +      ".....\n";
+					+         ".***.\n"
+					+         ".***.\n"
+					+         ".....\n";
 		assertEquals(result, desiredOutputString);
 	}
 
