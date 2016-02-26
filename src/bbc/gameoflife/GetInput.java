@@ -4,15 +4,24 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Designed to take user input to easily interact with the game of life implementation.
+ */
 public class GetInput {
 
+	/** The default input used if no input is specified by the user */
 	static String defautInput = ".*...\n"
 						+   	"..**.\n"
 						+       ".**..\n";
 
+	/** Stores a current game of life */
 	static GameOfLife gameOfLife;
+	/** Used to read user input from the console */
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+	/**
+	 * Starting point the program.
+	 */
 	public static void main(String[] args) {
 
 		startLife(getInputString());
@@ -36,6 +45,11 @@ public class GetInput {
 		}
 	}
 
+	/**
+	 * Reads the initial status of the game from the console.
+	 * If no game has been input then it returns the demo game.
+	 * @return String Initial string required to start the game of life.
+	 */
 	public static String getInputString(){
 		String input = "";
 
@@ -48,7 +62,6 @@ public class GetInput {
 				input = input + line + "\n";
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(input.equals("")){
@@ -57,6 +70,11 @@ public class GetInput {
 		return input;
 	}
 
+	/**
+	 * Reads input from the console to determine how many rounds should be played next time.
+	 * If no input is given the the number is set to 1.
+	 * @return int Number of rounds to play.
+	 */
 	public static int waitForInput(){
 		String line = "";
 		try {
@@ -76,11 +94,8 @@ public class GetInput {
 				}
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
 
 		return -1;
 	}
