@@ -106,21 +106,19 @@ public class GameOfLife {
 		boolean table[][] = new boolean[width][height];
 		String result = "";
 
-
 		for (Cell cell : life.getLiveCells()) {
 			table[cell.getX() + offsetX][cell.getY() + offsetY] = true;
 		}
 
-
 		for(int j=0; j < table[0].length; j++){
 			for(int i=0; i < table.length; i++){
 				if(table[i][j]){
-					result = result + " *";
-					//result = result + "*";
+					//result = result + " *";				// Space helps with readability
+					result = result + "*";
 				}
 				else{
-					result = result + " .";
-					//result = result + ".";
+					//result = result + " .";				// Space helps with readability
+					result = result + ".";
 				}
 			}
 			result = result + "\n";
@@ -131,7 +129,7 @@ public class GameOfLife {
 	}
 
 	/**
-	 * Checks to see if a cell will fit in the current board dimensions.
+	 * Checks to see if a cell will fit in the current printable board dimensions.
 	 * If not then the board dimensions are increased to accommodate the cell.
 	 * @param cell Cell to check.
 	 */
