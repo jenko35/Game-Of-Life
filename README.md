@@ -14,6 +14,7 @@ Some assumptions were:
 * The "infinite two-dimensional grid" can actually be limited. In the case of this application, by the maximum and minimum values of an integer in Java. The ability to print the grid is also limited by the maximum length of a String and the limitations of the console window. 
 * Efficiency of the game logic is more important than displaying the result. In this case the game data isn't ordered so requires ordering to visually display the result. This allows faster execution of multiple game rounds but means the final result takes slightly longer to print. 
 * The desired output format is the same as the input format. 
+* The hashCode method provided in the template produces sufficiently unique hash codes for this exercise.
 
 The assumptions provided in the exercise about the String input were:
 
