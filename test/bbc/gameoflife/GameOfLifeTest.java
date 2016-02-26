@@ -29,7 +29,7 @@ public class GameOfLifeTest {
 	}
 
 	@Test
-	public void testBasicFunction()
+	public void testCreationOfLife()	// When a dead cell has exactly three neighbours
 	{
 		inputString = ".....\n"
 				+     ".***.\n"
@@ -41,6 +41,87 @@ public class GameOfLifeTest {
 		desiredOutputString = "..*..\n"
 					+         "..*..\n"
 					+         "..*..\n";
+		assertEquals(result, desiredOutputString);
+	}
+	
+	@Test
+	public void testNoLive()
+	{
+		inputString = ".....\n"
+				+     ".....\n"
+				+     ".....\n";
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = ".....\n"
+					+         ".....\n"
+					+         ".....\n";
+		assertEquals(result, desiredOutputString);
+	}
+	
+	@Test
+	public void testUnderpopulation()	// When a live cell has fewer than two neighbours
+	{
+		inputString = ".....\n"
+				+     "..**.\n"
+				+     ".....\n";
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = ".....\n"
+					+         ".....\n"
+					+         ".....\n";
+		assertEquals(result, desiredOutputString);
+	}
+	
+	@Test
+	public void testOvercrowding()	// When a live cell has more than three neighbours
+	{
+		inputString = ".*.*.\n"
+				+     "..*..\n"
+				+     ".*.*.\n";
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = "..*..\n"
+					+         ".*.*.\n"
+					+         "..*..\n";
+		assertEquals(result, desiredOutputString);
+	}
+
+	@Test
+	public void testSurvival()	// When a live cell has two or three neighbours
+	{
+		inputString = ".....\n"
+				+     "..**.\n"
+				+     "..*..\n";
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = ".....\n"
+					+         "..**.\n"
+					+         "..**.\n";
+		assertEquals(result, desiredOutputString);
+	}
+	
+
+	@Test
+	public void testLoneCell()	// Live cell has no neighbours so should die
+	{
+		inputString = ".....\n"
+				+     "..*..\n"
+				+     ".....\n";
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = ".....\n"
+					+         ".....\n"
+					+         ".....\n";
 		assertEquals(result, desiredOutputString);
 	}
 
