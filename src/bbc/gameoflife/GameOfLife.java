@@ -55,11 +55,19 @@ public class GameOfLife {
 	 */
 	public void nextGo(){
 		Set<Cell> neighbourCells = neighbours.getLiveNeighbourMap().keySet();
+		Set<Cell> liveCells = life.getLiveCells();
 		Set<Cell> liveToDead = new HashSet<Cell>();
 		Set<Cell> deadToLive = new HashSet<Cell>();
+		
+		for (Cell cell : liveCells) {
+			if(!neighbours.getLiveNeighbourMap().containsKey(cell)){			// If live cell has no neighbours
+				liveToDead.add(cell);
+			}
+		}
 		for (Cell cell : neighbourCells) {
 			if(life.isAlive(cell)){
 				if(life.cellShouldSurvive(neighbours.getLiveNeighbourMap().get(cell))){
+					// No change
 				}
 				else{
 					liveToDead.add(cell);
