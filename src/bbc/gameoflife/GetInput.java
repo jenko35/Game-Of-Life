@@ -20,13 +20,17 @@ public class GetInput {
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 	/**
-	 * Starting point the program.
+	 * Starting point for of the program.
 	 */
 	public static void main(String[] args) {
 
 		startLife(getInputString());
 	}
 
+	/**
+	 * Manages the user input from the console.
+	 * @param input Initial string required to start the game of life.
+	 */
 	public static void startLife(String input){
 		gameOfLife = new GameOfLife(input);
 

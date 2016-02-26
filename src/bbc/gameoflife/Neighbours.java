@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * Representation of all the current important cells in a game of life.
- * Only cells that currently have live neighbours are important to the game.
+ * Representation of all the neighbours of live cells.
+ * Only cells that are live or currently have live neighbours are important to the game.
  */
 public class Neighbours {
 
-	/** A HashMap that contains all the current important cells along with the number of live neighbours they have */
+	/** A HashMap that contains all the cells that have live neighbours along with the number they have. */
 	static HashMap<Cell, Integer> liveNeighbourMap;
 
 	/**

@@ -24,16 +24,16 @@ public class Cell {
 	}
 
 	/**
-	 * This method is used to calculate a hash code for the cell.
-	 * @return int This returns the calculated hash code.
+	 * Calculates a hash code for the cell.
+	 * @return int Calculated hash code.
 	 */
 	public int hashCode(){
 		return 31 * 31 * x + 31 * y;
 	}
 
 	/**
-	 * This method is used to check the equality between this cell and another.
-	 * @param other The cell to check against this one for equality.
+	 * Checks the equality between this cell and another.
+	 * @param other Cell to check against this one for equality.
 	 * @return boolean True if equal, false if not.
 	 */
 	public boolean equals(Object other){
@@ -42,7 +42,7 @@ public class Cell {
 	}
 
 	/**
-	 * This method increases the number of neighbours by 1.
+	 * Increases the number of neighbours by 1.
 	 */
 	public void addLiveNeighbour(){
 		liveNeighbours++;
