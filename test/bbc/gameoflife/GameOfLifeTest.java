@@ -45,7 +45,7 @@ public class GameOfLifeTest {
 	}
 	
 	@Test
-	public void testNoLive()
+	public void testNoLive()	//When the initial state consists of all dead cells
 	{
 		inputString = ".....\n"
 				+     ".....\n"
