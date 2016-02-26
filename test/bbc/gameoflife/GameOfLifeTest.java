@@ -60,12 +60,13 @@ public class GameOfLifeTest {
 		assertEquals(result, desiredOutputString);
 	}
 	
+
 	@Test
 	public void testUnderpopulation()	// When a live cell has fewer than two neighbours
 	{
-		inputString = ".....\n"
-				+     "..**.\n"
-				+     ".....\n";
+		inputString = "*....\n"
+				+     ".....\n"
+				+     "..**.\n";	 // 0 and 1 neighbour example
 
 		gameOfLife = new GameOfLife(inputString);
 		gameOfLife.nextGo();
@@ -77,11 +78,27 @@ public class GameOfLifeTest {
 	}
 	
 	@Test
+	public void testSurvival()	// When a live cell has two or three neighbours
+	{
+		inputString = ".*...\n"		
+				+     "..**.\n"
+				+     "..*..\n";	// 2 and 3 neighbour example
+
+		gameOfLife = new GameOfLife(inputString);
+		gameOfLife.nextGo();
+		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
+		desiredOutputString = "..*..\n"
+					+         ".***.\n"
+					+         "..**.\n";
+		assertEquals(result, desiredOutputString);
+	}
+	
+	@Test
 	public void testOvercrowding()	// When a live cell has more than three neighbours
 	{
 		inputString = ".*.*.\n"
 				+     "..*..\n"
-				+     ".*.*.\n";
+				+     ".*.*.\n";	// 4 neighbour example
 
 		gameOfLife = new GameOfLife(inputString);
 		gameOfLife.nextGo();
@@ -91,37 +108,22 @@ public class GameOfLifeTest {
 					+         "..*..\n";
 		assertEquals(result, desiredOutputString);
 	}
-
-	@Test
-	public void testSurvival()	// When a live cell has two or three neighbours
-	{
-		inputString = ".....\n"
-				+     "..**.\n"
-				+     "..*..\n";
-
-		gameOfLife = new GameOfLife(inputString);
-		gameOfLife.nextGo();
-		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
-		desiredOutputString = ".....\n"
-					+         "..**.\n"
-					+         "..**.\n";
-		assertEquals(result, desiredOutputString);
-	}
 	
-
 	@Test
-	public void testLoneCell()	// Live cell has no neighbours so should die
+	public void testOvercrowding8()	// When a live cell has more than three neighbours
 	{
-		inputString = ".....\n"
-				+     "..*..\n"
-				+     ".....\n";
+		inputString = ".***.\n"
+				+     ".***.\n"
+				+     ".***.\n";	// 8 neighbour example
 
 		gameOfLife = new GameOfLife(inputString);
 		gameOfLife.nextGo();
 		String result = gameOfLife.printBoard().replaceAll(" ", "");	// Allow for spaced formatting
-		desiredOutputString = ".....\n"
-					+         ".....\n"
-					+         ".....\n";
+		desiredOutputString = "..*..\n"
+					+         ".*.*.\n"
+					+         "*...*\n"
+					+         ".*.*.\n"
+					+         "..*..\n";
 		assertEquals(result, desiredOutputString);
 	}
 
